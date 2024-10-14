@@ -1,5 +1,7 @@
+/**
+ * Driver class to test hospital staff program.
+ */
 public class Hospital {
-
 
     public static void main(String[] args) {
         Doctor doctor1 = new Doctor("Bob", 1234567);
