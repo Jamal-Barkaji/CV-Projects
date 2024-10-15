@@ -1,6 +1,10 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Class that takes input of numbers between 1 and 100, and adds an asterisk for each number in ranges 1-10, 11-20...., 91-100.
+ * Enter a number outside the range to end the loop.
+ */
 public class Histogram {
     public static void main(String[] args) {
         try {
