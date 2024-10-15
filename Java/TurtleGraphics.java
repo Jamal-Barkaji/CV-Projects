@@ -6,9 +6,11 @@ import javax.swing.JFrame;
 import java.awt.Color;
 import java.lang.Math.*;
 import java.util.Scanner;
-
 import uk.ac.leedsbeckett.oop.OOPGraphics;
 
+/**
+ * Concrete class, which draws on a screen with a turtle icon.
+ */
 public class TurtleGraphics extends OOPGraphics {
     File history = new File("history.txt");
 
@@ -36,7 +38,10 @@ public class TurtleGraphics extends OOPGraphics {
         }
     }
 
-
+    /**
+     * Processes command from predetermined commands list.
+     * @param command 1 word instruction from command list.
+     */
     public void processCommand(String command) {
         try (FileWriter fw = new FileWriter(history, true);
              BufferedWriter bw = new BufferedWriter(fw);
@@ -103,6 +108,11 @@ public class TurtleGraphics extends OOPGraphics {
         }
     }
 
+    /**
+     * Processes command from predetermined commands list with an integer value for the command.
+     * @param command 1 word instruction from command list.
+     * @param specifier integer to pass to the selected command.
+     */
     public void processCommand(String command, int specifier) {
         if (specifier < 1) {
             displayMessage("Error: second parameter must be an integer over zero");
@@ -135,6 +145,11 @@ public class TurtleGraphics extends OOPGraphics {
         }
     }
 
+    /**
+     * Processes command from predetermined commands list with a string value for the command.
+     * @param command 1 word instruction from command list.
+     * @param stringSpecifier string to pass to the selected command.
+     */
     public void processCommand(String command, String stringSpecifier) {
         switch (command) {
             case "save":
@@ -224,12 +239,10 @@ public class TurtleGraphics extends OOPGraphics {
         }
     }
 
-    @Override
-    public void about() {
-        super.about();
-        displayMessage("Jamal");
-    }
-
+    /**
+     * Draws a square.
+     * @param length specified length of square's sides.
+     */
     public void square(int length) {
         for (int i = 0; i < 4; i++) {
             turnRight(90);
@@ -237,6 +250,10 @@ public class TurtleGraphics extends OOPGraphics {
         }
     }
 
+    /**
+     * Changes pen's colour using RGB value.
+     * @param rgb red,green,blue. Values must be between 0 and 255.
+     */
     public void penColour(String rgb) {
         try {
             String[] parts = rgb.split(",");
@@ -251,10 +268,18 @@ public class TurtleGraphics extends OOPGraphics {
         }
     }
 
+    /**
+     * Changes width of pen.
+     * @param width new width.
+     */
     public void penWidth(int width) {
         setStroke(width);
     }
 
+    /**
+     * Draws an equilateral triangle.
+     * @param size length of each side of equilateral triangle.
+     */
     public void triangle(int size) {
         for (int i = 0; i < 3; i++) {
             forward(size);
@@ -262,6 +287,10 @@ public class TurtleGraphics extends OOPGraphics {
         }
     }
 
+    /**
+     * Draws a triangle with 3 specified lengths.
+     * @param sides length of each side. Must be separated by commas.
+     */
     public void triangle(String sides) {
         try {
             String[] parts = sides.split(",");
